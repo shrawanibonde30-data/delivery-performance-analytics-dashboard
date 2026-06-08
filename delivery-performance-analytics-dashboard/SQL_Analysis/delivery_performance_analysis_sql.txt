@@ -1,0 +1,83 @@
+CREATE DATABASE ecommerce;
+USE ecommerce;
+
+#-----> 1. Find the Average Delivery Time for Each Platform
+SELECT platform, AVG(delivery_time_minutes) AS avg_delivery_time
+FROM ecommerce_cleaned_final
+GROUP BY platform
+ORDER BY avg_delivery_time ASC;
+
+
+#-----> 2. Find Total Orders and Delayed Orders by Platform
+SELECT platform, COUNT(*) AS total_orders,
+SUM(CASE WHEN delivery_delay = 'YES' THEN 1 ELSE 0 END) AS delayed_orders
+FROM ecommerce_cleaned_final
+GROUP BY platform
+ORDER BY delayed_orders DESC;
+
+
+#-----> 3. Calculate Delay Percentage for Each Platform
+SELECT platform, COUNT(*) AS total_orders,
+SUM(CASE WHEN delivery_delay = 'Yes' THEN 1 ELSE 0 END) AS delayed_orders,
+SUM(CASE WHEN delivery_delay = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS delay_percentage
+FROM ecommerce_cleaned_final
+GROUP BY platform
+ORDER BY delay_percentage DESC;
+
+
+#-----> 4. Find Delayed Orders by Product Category
+SELECT product_category, COUNT(*) AS total_orders,
+SUM(CASE WHEN delivery_delay = 'Yes' THEN 1 ELSE 0 END) AS delayed_orders
+FROM ecommerce_cleaned_final
+GROUP BY product_category
+ORDER BY delayed_orders DESC;
+
+
+#-----> 5. Calculate Overall Delivery Delay Percentage
+SELECT COUNT(*) AS total_orders,
+SUM(CASE WHEN delivery_delay = 'Yes' THEN 1 ELSE 0 END) AS delayed_orders,
+SUM(CASE WHEN delivery_delay = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS delay_percentage
+FROM ecommerce_cleaned_final;
+
+
+#-----> 6. Calculate Total Revenue by Product Category
+SELECT product_category, SUM(order_value_INR) AS total_revenue
+FROM ecommerce_cleaned_final
+GROUP BY product_category
+ORDER BY total_revenue DESC;
+
+
+#-----> 7. Find Average Order Value by Platform
+SELECT platform, AVG(order_value_INR) AS avg_order_value
+FROM ecommerce_cleaned_final
+GROUP BY platform
+ORDER BY avg_order_value DESC;
+
+
+#-----> 8. Find Average Customer Rating by Platform
+SELECT platform, AVG(service_rating) AS avg_rating
+FROM ecommerce_cleaned_final
+GROUP BY platform
+ORDER BY avg_rating DESC;
+
+
+#-----> 9. Compare Customer Ratings for Delayed vs Non-Delayed Orders
+SELECT delivery_delay, AVG(service_rating) AS avg_rating, COUNT(*) AS total_orders
+FROM ecommerce_cleaned_final
+GROUP BY delivery_delay;
+
+
+#-----> 10. Calculate Refund Percentage by Product Category
+SELECT product_category, COUNT(*) AS total_orders, SUM(CASE WHEN refund_requested = 'Yes' THEN 1 ELSE 0 END) AS refund_orders,
+(SUM(CASE WHEN refund_requested = 'Yes' THEN 1 ELSE 0 END) * 100.0) / COUNT(*) AS refund_percentage
+FROM ecommerce_cleaned_final
+GROUP BY product_category
+ORDER BY refund_percentage DESC;
+
+
+#-----> 11. Analyze Relationship Between Delivery Delays and Refund Requests
+SELECT delivery_delay, COUNT(*) AS total_orders,
+SUM(CASE WHEN refund_requested = 'Yes' THEN 1 ELSE 0 END) AS refund_orders,
+SUM(CASE WHEN refund_requested = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS refund_percentage
+FROM ecommerce_cleaned_final
+GROUP BY delivery_delay;
