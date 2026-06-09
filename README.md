@@ -29,7 +29,7 @@ The project was developed using Python, MySQL, Power BI, and DAX.
 
 ## Dashboard Preview
 
-![Dashboard Overview](Dashboard_Screenshots/dashboard_overview.png)
+![Dashboard Overview](dashboard_overview.png)
 
 ## Key Insights
 
