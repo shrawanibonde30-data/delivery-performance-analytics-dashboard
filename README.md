@@ -29,7 +29,7 @@ The project was developed using Python, MySQL, Power BI, and DAX.
 
 ## Dashboard Preview
 
-![Dashboard Overview](dashboard_overview.png)
+![Dashboard Overview](delivery-performance-analytics-dashboard/delivery_performance_dashboard.png)
 
 ## Key Insights
 
