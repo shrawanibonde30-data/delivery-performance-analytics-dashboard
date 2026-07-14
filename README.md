@@ -2,30 +2,30 @@
 
 ## Overview
 
-This project focuses on analyzing delivery operations data to assess delivery performance, identify delay patterns, evaluate customer experience, and compare platform efficiency.
+This project focuses on analyzing delivery operations data to evaluate delivery performance, identify delay patterns, assess customer experience, and compare platform efficiency.
 
-The analysis was carried out using Python, MySQL, Power BI, and DAX.
+The analysis was performed using Python, MySQL, Power BI, and DAX.
 
 ## Tools Used
 
-* Python
-* Pandas
-* MySQL
-* Power BI
-* DAX
+- Python
+- Pandas
+- MySQL
+- Power BI
+- DAX
 
 ## Key KPIs
 
-* Total Orders
-* Average Delivery Time
-* Delay Percentage
+- Total Orders
+- Average Delivery Time
+- Delay Percentage
 
 ## Dashboard Features
 
-* Platform-wise Performance Analysis
-* Category-wise Delay Analysis
-* Interactive Filters and Slicers
-* KPI Cards for Key Metrics
+- Platform-wise Performance Analysis
+- Category-wise Delay Analysis
+- Interactive Filters and Slicers
+- KPI Cards for Key Metrics
 
 ## Dashboard Preview
 
@@ -33,18 +33,18 @@ The analysis was carried out using Python, MySQL, Power BI, and DAX.
 
 ## Key Insights
 
-* Approximately 46% of orders were delivered with delays.
-* Delivery performance differs across platforms.
-* Certain product categories experience higher delay rates than others.
-* Orders with delivery delays tend to have a slightly higher refund rate.
+- Approximately 46% of orders were delivered with delays.
+- Delivery performance varies across different platforms.
+- Some product categories experience higher delay rates than others.
+- Orders with delivery delays tend to have a slightly higher refund rate.
 
 ## Project Structure
 
-* Data
-* Data_Preparation
-* SQL_Analysis
-* PowerBI_Dashboard
-* Dashboard_Screenshots
+- Data
+- Data_Preparation
+- SQL_Analysis
+- PowerBI_Dashboard
+- Dashboard_Screenshots
 
 ## Author
 
